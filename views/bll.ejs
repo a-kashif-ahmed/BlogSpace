@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('./partials/head.ejs') %>
+        <%- include('./partials/scripts.ejs') %>
+            <%- include('./partials/nav.ejs') %>
+</head>
+<body>
+    <div class="container mt-3"  >
+    <h3 class="mb-3 mt-3"><%= blogg.blogtitle %></h3>
+    <br/>
+    <img src="<%= blogg.blogThumb %>" width="30%" height="30%" style="display: flex; justify-content: center;">
+    <br/>
+    <p><%= blogg.blogDes %></p></div>
+   <div class="container mx-auto">
+    <h5>Comments</h5>
+    <% if (locals.user) { %>
+        <form class="container" action="/blogs/comment/<%= blogg._id%>" method="post">
+            <input type="text" name="txt" class="form-control" >
+            <input type="submit" value="Add" class="btn btn-primary">
+        </form>
+    <% } %>
+
+    <div class="container-fluid">
+    <% coms.forEach(comment => { %>
+    <p><%= comment.userid.fullname %></p>
+     <p><%= comment.txt %></p>
+    <% }) %>
+</div>
+   </div>
+</body>
+</html>

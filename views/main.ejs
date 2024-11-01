@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpace</title>
+    <%- include('./partials/head.ejs') %>
+    <%- include('./partials/scripts.ejs') %>
+    <%- include('./partials/nav.ejs') %>
+</head>
+<body>
+    <div class="container mx-auto mt-3 row row-cols-2">
+        <% bloged.forEach(blog => { %>
+            <div class="card" style="width: 18rem;">
+                <img src="<%= blog.blogThumb %>" width="70%" height="70%" class="card-img-top" >
+                <div class="card-body">
+                  <h5 class="card-title"><%= blog.blogtitle %></h5>
+                  <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                  <a href="/blogs/<%= blog._id %>" class="btn btn-primary">View</a>
+                </div>
+              </div>
+        <% }) %>
+        </div>
+    
+</body>
+</html>
