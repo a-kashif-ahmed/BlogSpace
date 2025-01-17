@@ -1,4 +1,4 @@
-<img width="946" alt="Screenshot 2025-01-17 123054" src="https://github.com/user-attachments/assets/10af7f65-fcff-44ba-aaaf-6311b725d804" />
+
 # BlogSpace
 
 Welcome to the Blogging App! This application allows users to create, manage, and share their blog posts with the world. Below you'll find a comprehensive guide on how to set up, use, and contribute to the project.
