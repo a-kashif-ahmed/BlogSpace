@@ -18,12 +18,12 @@ Welcome to the Blogging App! This application allows users to create, manage, an
 ## Installation
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/yourusername/blogging-app.git
+    git clone https://github.com/a-kashif-ahmed/BlogSpace.git
     ```
 
 2. **Navigate to the project directory:**
     ```sh
-    cd blogging-app
+    cd BlogSpace
     ```
 
 3. **Install dependencies:**
@@ -38,4 +38,7 @@ Welcome to the Blogging App! This application allows users to create, manage, an
 
 ## Usage
 Once the application is set up and running, you can access it at `http://localhost:8000`. Create an account or log in to start creating and managing your blog posts.
+
+
+
 
