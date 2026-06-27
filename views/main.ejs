@@ -1,26 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlogSpace</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Blogs | BlogSpace</title>
+
     <%- include('./partials/head.ejs') %>
-    <%- include('./partials/scripts.ejs') %>
-    <%- include('./partials/nav.ejs') %>
+
 </head>
+
 <body>
-    <div class="container mx-auto mt-3 row row-cols-2">
-        <% bloged.forEach(blog => { %>
-            <div class="card" style="width: 18rem;">
-                <img src="<%= blog.blogThumb %>" width="70%" height="70%" class="card-img-top" >
-                <div class="card-body">
-                  <h5 class="card-title"><%= blog.blogtitle %></h5>
-                  <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                  <a href="/blogs/<%= blog._id %>" class="btn btn-primary">View</a>
-                </div>
-              </div>
-        <% }) %>
+
+<%- include('./partials/nav.ejs') %>
+
+<div class="container">
+
+    <div
+    style="
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:35px;">
+
+        <div>
+
+            <h1 class="page-title">
+                My Blogs
+            </h1>
+
+            <p class="subtitle">
+                Manage and revisit everything you've published.
+            </p>
+
         </div>
-    
+
+        <a href="/blogs/add">
+
+            <button class="btn">
+                + New Blog
+            </button>
+
+        </a>
+
+    </div>
+
+    <% if(bloged.length===0){ %>
+
+        <div
+        class="card"
+        style="text-align:center;">
+
+            <h2 style="margin-bottom:15px;">
+                You haven't published anything yet.
+            </h2>
+
+            <p class="subtitle"
+               style="margin-bottom:25px;">
+
+                Start sharing your ideas with the community.
+
+            </p>
+
+            <a href="/blogs/add">
+
+                <button class="btn">
+                    Write Your First Blog
+                </button>
+
+            </a>
+
+        </div>
+
+    <% } %>
+
+    <div class="grid">
+
+        <% bloged.forEach(blog=>{ %>
+
+        <div class="card blog-card">
+
+            <img
+            src="<%= blog.blogThumb %>"
+            alt="<%= blog.blogtitle %>">
+
+            <h2 class="blog-title">
+                <%= blog.blogtitle %>
+            </h2>
+
+            <p
+            class="blog-desc"
+            style="margin-bottom:25px;">
+
+                <%=
+                blog.blogDes.length>130
+                ?
+                blog.blogDes.substring(0,130)+"..."
+                :
+                blog.blogDes
+                %>
+
+            </p>
+
+            <div
+            style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;">
+
+                <a href="/blogs/<%= blog._id %>">
+
+                    <button class="btn">
+                        View Blog
+                    </button>
+
+                </a>
+
+                <span
+                style="
+                color:var(--muted);
+                font-family:var(--mono);
+                font-size:.8rem;">
+
+                    ID:
+                    <%= blog._id.toString().slice(-6) %>
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <% }) %>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <p>
+        BlogSpace • Your personal publishing dashboard.
+    </p>
+
+</footer>
+
 </body>
+
 </html>

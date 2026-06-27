@@ -2,31 +2,135 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Blog | BlogSpace</title>
+
     <%- include('./partials/head.ejs') %>
-        <%- include('./partials/scripts.ejs') %>
-            <%- include('./partials/nav.ejs') %>
+
 </head>
 
 <body>
-    <form class="container" method="post" enctype="multipart/form-data" action="/blogs/add" >
-        <div class="mb-3 mt-3 ">
-            <label class="form-check-label" for="exampleCheck1">Thumbnail</label>
-            <input type="file" name="thumbnail" class="form-input" id="exampleCheck1">
-          
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Blog Title</label>
-            <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <label for="exampleInputPassword1" class="form-label">Blog Description</label>
-        <div class="mb-3">
-            <textarea name="des" rows="10" cols="150"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+
+<%- include('./partials/nav.ejs') %>
+
+<div class="container">
+
+    <div class="card center-card" style="max-width:800px;">
+
+        <h1 class="page-title">
+            Create New Blog
+        </h1>
+
+        <p
+        class="subtitle"
+        style="margin-bottom:35px;">
+
+            Share your thoughts with the BlogSpace community.
+
+        </p>
+
+        <form
+        action="/blogs/add"
+        method="POST">
+
+            <!-- Blog Title -->
+
+            <div class="form-group">
+
+                <label>
+                    Blog Title
+                </label>
+
+                <input
+                type="text"
+                name="blogtitle"
+                placeholder="Enter your blog title"
+                required>
+
+            </div>
+
+            <!-- Thumbnail -->
+
+            <div class="form-group">
+
+                <label>
+                    Thumbnail URL
+                </label>
+
+                <input
+                type="text"
+                name="blogThumb"
+                placeholder="https://example.com/image.jpg"
+                required>
+
+            </div>
+
+            <!-- Description -->
+
+            <div class="form-group">
+
+                <label>
+                    Blog Content
+                </label>
+
+                <textarea
+                name="blogDes"
+                rows="12"
+                placeholder="Write your blog here..."
+                required></textarea>
+
+            </div>
+
+            <div
+            style="
+            display:flex;
+            justify-content:flex-end;
+            gap:15px;
+            flex-wrap:wrap;">
+
+                <a href="/blogs/index">
+
+                    <button
+                    type="button"
+                    class="btn btn-outline">
+
+                        Cancel
+
+                    </button>
+
+                </a>
+
+                <button
+                type="submit"
+                class="btn">
+
+                    Publish Blog →
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <p>
+
+        BlogSpace • Every story deserves to be shared.
+
+    </p>
+
+</footer>
+
 </body>
 
 </html>

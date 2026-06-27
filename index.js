@@ -8,8 +8,8 @@ const reblog = require('./routes/blogs')
 const {authe}= require('./middlewares/auth')
 // const blog = require("")
 const cokpar =require('cookie-parser')
-app.set('view engine','ejs')
-app.set("views", path.resolve("./views"))
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(cokpar());
 app.use(express.urlencoded({extended:false}))
 const bodyParser = require("body-parser")
@@ -25,12 +25,6 @@ app.get("/",(req,res)=>{
      
     });
 })
-
-
-
-
-
-
 app.listen(PORT,(req,res)=>{
     console.log(`Server Started at ${PORT}`);
 })

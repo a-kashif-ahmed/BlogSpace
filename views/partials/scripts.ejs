@@ -1,1 +1,59 @@
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- BlogSpace Scripts -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ---------- Copy Button ---------- */
+
+    document.querySelectorAll("[data-copy]").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            navigator.clipboard.writeText(button.dataset.copy);
+
+            const original = button.innerText;
+
+            button.innerText = "Copied!";
+
+            setTimeout(() => {
+
+                button.innerText = original;
+
+            }, 1800);
+
+        });
+
+    });
+
+    /* ---------- Smooth Card Hover ---------- */
+
+    document.querySelectorAll(".blog-card").forEach(card => {
+
+        card.addEventListener("mouseenter", () => {
+
+            card.style.transform = "translateY(-6px)";
+
+        });
+
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform = "translateY(0px)";
+
+        });
+
+    });
+
+    /* ---------- Auto Focus ---------- */
+
+    const firstInput = document.querySelector("input");
+
+    if (firstInput) {
+
+        firstInput.focus();
+
+    }
+
+});
+
+</script>

@@ -1,65 +1,69 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
-    
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">BlogSpace</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <a class="nav-link active" aria-current="page" href="#">
-          
-            </a>
-          </li>
-          <!-- <li class="nav-item ms-2">
-        
-         
-        SignUp/SignIn
-        
-          </li> -->
-          <% if (locals.user) { %>
-            
-    
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <% if (locals.user) { %>
-                    <%= user.fullname %>
-                    <% } %>
-            </a>
-            
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/user/logout"> <% if (locals.user) { %>
-                Log Out   <% } %>
-            </a></li>
-            <% } %>
-              <!--  <li><a class="dropdown-item" href="#">Another action</a></li> -->
-              <!-- <li><hr class="dropdown-divider"></li> -->
-              <!-- <li><a class="dropdown-item" href="">Logout</a></li> -->
-            </ul>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link ms-2" href="/blogs/index">Home</a>
-         </li>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link ms-2" href="/blogs/add">Add Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ms-2" href="/blogs/myblog">Show My Blogs</a>
-          </li>
-        <!--<form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> -->
-      </div>
-    </div>
-  </nav>
+<nav
+class="container"
+style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 0;
+margin-bottom:40px;
+">
 
+<div style="display:flex;align-items:center;gap:12px;">
 
-  <% if (locals.user) { %>
-    <footer>
-      <div>
-        <form action="/blogs/comment" method=""></form>
-      </div>
-    <% } %>
-  </footer>
+<div
+style="
+width:45px;
+height:45px;
+background:#408175;
+border-radius:12px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+font-weight:bold;
+">
+📝
+</div>
+
+<h2 style="font-weight:600;">
+Blog<span style="color:#B5B9F0;">Space</span>
+</h2>
+
+</div>
+
+<div
+style="
+display:flex;
+align-items:center;
+gap:22px;
+">
+
+<% if(locals.user){ %>
+
+<a href="/blogs/index">Home</a>
+
+<a href="/blogs/add">Add Blog</a>
+
+<a href="/blogs/myblog">My Blogs</a>
+
+<span style="color:#B5B9F0;">
+<%= user.fullname %>
+</span>
+
+<a href="/user/logout" class="btn-outline btn">
+Logout
+</a>
+
+<% } else { %>
+
+<a href="/">Home</a>
+
+<a href="/user/login">Login</a>
+
+<a href="/user/signup">Signup</a>
+
+<% } %>
+
+</div>
+
+</nav>
