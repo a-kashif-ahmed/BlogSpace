@@ -9,7 +9,9 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <div class="mx-auto mt-5" style="width: 200px;">
+    <div class="container">
+
+    <div class="card center-card">
     <form method="post" action="/user/signup">
       <div class="mb-5">
         <label for="exampleInputEmail1" class="form-label">Full Name</label>
@@ -26,5 +28,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
    </div>
+   </div>
+   
 </body>
 </html>

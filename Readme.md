@@ -36,7 +36,7 @@ A modern full-stack blogging platform built with **Node.js**, **Express.js**, **
   * Custom dark theme
   * Responsive design
   * Minimal, distraction-free interface
-  * Inspired by the Upins design language
+  
 
 ---
 
